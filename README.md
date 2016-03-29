@@ -20,7 +20,7 @@ Generic Cross Platform Signal Handler.
 
 ## Build
 
-To build Socket from the command line:
+To build Signals from the command line:
 
 ```
 % cd <path-to-clone>
