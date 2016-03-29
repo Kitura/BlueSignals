@@ -84,7 +84,7 @@ public class Signals {
 	// MARK: Class Methods
 	
 	///
-	/// Trap - catch an operating system signal.
+	/// Trap an operating system signal.
 	///
 	/// - Parameters:
 	///		- signal:	The signal to catch.
@@ -113,7 +113,35 @@ public class Signals {
 	}
 	
 	///
-	/// Raise - raise a signal
+	/// Trap multiple signals to individual handlers
+	///
+	/// - Parameter signals:	An array of tuples each containing a signal and signal handler.
+	///
+	public class func trap(signals signals: [(signal: Signal, action: SigActionHandler)]) {
+	
+		for sighandler in signals {
+			
+			Signals.trap(signal: sighandler.signal, action: sighandler.action)
+		}
+	}
+	
+	///
+	/// Trap multiple signals to a single handler
+	///
+	/// - Parameters:
+	///		- signals:	An array of signals to catch.
+	///		- action:	The action handler that will handle these signals.
+	///
+	public class func trap(signals signals: [Signal], action: SigActionHandler) {
+		
+		for signal in signals {
+			
+			Signals.trap(signal: signal, action: action)
+		}
+	}
+	
+	///
+	/// Raise an operating system signal
 	///
 	/// - Parameter signal:	The signal to raise.
 	///
