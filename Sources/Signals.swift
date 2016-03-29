@@ -1,6 +1,6 @@
 //
 //  Signals.swift
-//  ETSocket
+//  Signals
 //
 //  Created by Bill Abt on 3/29/16.
 //  Copyright © 2016 IBM. All rights reserved.
@@ -26,8 +26,15 @@
 	import Foundation
 #endif
 
+// MARK: Signals
+
 public class Signals {
 	
+	// MARK: Enums
+	
+	///
+	/// Common OS Signals
+	///
 	public enum Signal: Int32 {
 		case HUP    = 1
 		case INT    = 2
@@ -38,30 +45,43 @@ public class Signals {
 		case TERM   = 15
 	}
 	
+
+	// MARK: Typealiases
+	
+	///
+	/// Action handler signature.
+	///
 	public typealias SigActionHandler = @convention(c)(Int32) -> Void
 
-	public class func trap(signal: Signal, action: SigActionHandler) {
-	
-	#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
 
-		typealias SignalAction = sigaction
-		
-		var signalAction = SignalAction(__sigaction_u: unsafeBitCast(action, to: __sigaction_u.self), sa_mask: 0, sa_flags: 0)
-		
-		withUnsafePointer(&signalAction) { actionPointer in
-			sigaction(signal.rawValue, actionPointer, nil)
-		}
-		
-	#elseif os(Linux)
+	// MARK: Class Methods
 	
-		var sigAction = sigaction()
+	///
+	/// Trap - catch an operating system signal.
+	///
+	/// - Parameters:
+	///		- signal:	The signal to catch.
+	///		- action:	The action handler.
+	///
+	public class func trap(signal signal: Signal, action: SigActionHandler) {
 	
-		sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
-	
-		sigaction(signal.rawValue, &sigAction, nil)
-	
-	#endif
+		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
 
+			var signalAction = sigaction(__sigaction_u: unsafeBitCast(action, to: __sigaction_u.self), sa_mask: 0, sa_flags: 0)
+		
+			withUnsafePointer(&signalAction) { actionPointer in
+				
+				sigaction(signal.rawValue, actionPointer, nil)
+			}
+		
+		#elseif os(Linux)
+	
+			var sigAction = sigaction()
+	
+			sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
+	
+			sigaction(signal.rawValue, &sigAction, nil)
+	
+		#endif
 	}
-	
 }
