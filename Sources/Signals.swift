@@ -35,14 +35,41 @@ public class Signals {
 	///
 	/// Common OS Signals
 	///
-	public enum Signal: Int32 {
-		case HUP    = 1
-		case INT    = 2
-		case QUIT   = 3
-		case ABRT   = 6
-		case KILL   = 9
-		case ALRM   = 14
-		case TERM   = 15
+	public enum Signal {
+		case HUP
+		case INT
+		case QUIT
+		case ABRT
+		case KILL
+		case ALRM
+		case TERM
+		case USER(Int32)
+		
+		///
+		/// Obtain the OS dependent value of a Signal
+		///
+		public var valueOf: Int32 {
+			
+			switch self {
+			case HUP:
+				return SIGHUP
+			case INT:
+				return SIGINT
+			case QUIT:
+				return SIGQUIT
+			case ABRT:
+				return SIGABRT
+			case KILL:
+				return SIGKILL
+			case ALRM:
+				return SIGALRM
+			case TERM:
+				return SIGTERM
+			case USER(let sig):
+				return sig
+				
+			}
+		}
 	}
 	
 
@@ -71,7 +98,7 @@ public class Signals {
 		
 			withUnsafePointer(&signalAction) { actionPointer in
 				
-				Darwin.sigaction(signal.rawValue, actionPointer, nil)
+				Darwin.sigaction(signal.valueOf, actionPointer, nil)
 			}
 		
 		#elseif os(Linux)
@@ -80,7 +107,7 @@ public class Signals {
 	
 			sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
 	
-			Glibc.sigaction(signal.rawValue, &sigAction, nil)
+			Glibc.sigaction(signal.valueOf, &sigAction, nil)
 	
 		#endif
 	}
@@ -94,11 +121,11 @@ public class Signals {
 		
 		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
 		
-			Darwin.raise(signal.rawValue)
+			Darwin.raise(signal.valueOf)
 		
 		#elseif os(Linux)
 		
-			Glibc.raise(signal.rawValue)
+			Glibc.raise(signal.valueOf)
 		
 		#endif
 	}
