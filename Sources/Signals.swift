@@ -22,8 +22,8 @@
 	import Darwin
 	import Foundation
 #elseif os(Linux)
-	import Foundation
 	import Glibc
+	import Foundation
 #endif
 
 public class Signals {
@@ -38,23 +38,12 @@ public class Signals {
 		case TERM   = 15
 	}
 	
-	#if os(Linux)
-	
 	public typealias SigActionHandler = @convention(c)(Int32) -> Void
-	
+
 	public class func trap(signal: Signal, action: SigActionHandler) {
 	
-		var sigAction = sigaction()
-	
-		sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
-	
-		sigaction(signal.rawValue, &sigAction, nil)
-	}
-	
-	#else
-	
-	public class func trap(signal: Signal, action: @convention(c) Int32 -> ()) {
-		
+	#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
+
 		typealias SignalAction = sigaction
 		
 		var signalAction = SignalAction(__sigaction_u: unsafeBitCast(action, to: __sigaction_u.self), sa_mask: 0, sa_flags: 0)
@@ -62,9 +51,17 @@ public class Signals {
 		withUnsafePointer(&signalAction) { actionPointer in
 			sigaction(signal.rawValue, actionPointer, nil)
 		}
-	}
+		
+	#elseif os(Linux)
+	
+		var sigAction = sigaction()
+	
+		sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
+	
+		sigaction(signal.rawValue, &sigAction, nil)
 	
 	#endif
-	
+
+	}
 	
 }
