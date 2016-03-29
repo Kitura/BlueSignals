@@ -31,7 +31,7 @@ To build Signals from the command line:
 
 ### Before starting
 
-The first think you need to do is import the Signals framework.  This is done by the following:
+The first thing you need to do is import the Signals framework.  This is done by the following:
 ```
 import Signals
 ```
@@ -79,7 +79,7 @@ let mySignal = Signals.Signal.USER(Int32(20))
 
 Signals.trap(signal: mySignal) { signal in
 
-	print("Recieved signal \(signal)")
+	print("Received signal \(signal)")
 }
 
 Signals.raise(signal: mySignal)
