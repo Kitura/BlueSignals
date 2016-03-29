@@ -38,9 +38,10 @@ import Signals
 
 ### Provided APIs
 
-Signals provides two class level APIs.  One is used for trapping and handling operating system signals.  The other function allows for the raising of a signal.
+Signals provides four (4) class level APIs.  Three (3) are used for trapping and handling operating system signals.  The other function allows for the raising of a signal.
 
 #### Trapping a signal
+- `trap(signal signal: Signal, action: SigActionHandler)` - This basic API allows you to set and specific handler for a specific signal.
 
 The example below shows how to add a trap handler to a server in order to perfrorm and orderly shutdown in the event that user press `^C` which sends the process a `SIGINT`.
 ```
@@ -57,6 +58,9 @@ Signals.trap(signal: .INT) { signal in
 
 server.run()
 ```
+Additionally, convenience API's that build on the basic API specified above are provided that will allow for trapping multiple signals each to a separate handler or to a single handler.
+- `trap(signals signals: [(signal: Signal, action: SigActionHandler)])` - This lets you trap multiple signals to separate handlers in a single function call.
+- `trap(signals signals: [Signal], action: SigActionHandler)` - This API lets you trap multiple signals to a common handler.
 
 #### Raising a signal
 
