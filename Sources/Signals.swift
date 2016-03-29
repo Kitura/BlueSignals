@@ -71,7 +71,7 @@ public class Signals {
 		
 			withUnsafePointer(&signalAction) { actionPointer in
 				
-				sigaction(signal.rawValue, actionPointer, nil)
+				Darwin.sigaction(signal.rawValue, actionPointer, nil)
 			}
 		
 		#elseif os(Linux)
@@ -80,8 +80,26 @@ public class Signals {
 	
 			sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
 	
-			sigaction(signal.rawValue, &sigAction, nil)
+			Glibc.sigaction(signal.rawValue, &sigAction, nil)
 	
+		#endif
+	}
+	
+	///
+	/// Raise - raise a signal
+	///
+	/// - Parameter signal:	The signal to raise.
+	///
+	public class func raise(signal signal: Signal) {
+		
+		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
+		
+			Darwin.raise(signal.rawValue)
+		
+		#elseif os(Linux)
+		
+			Glibc.raise(signal.rawValue)
+		
 		#endif
 	}
 }
