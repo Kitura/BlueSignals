@@ -31,7 +31,7 @@ To build Signals from the command line:
 
 ### Before starting
 
-The first think you need to do is import the Signals framework.  This is done by the following:
+The first thing you need to do is import the Signals framework.  This is done by the following:
 ```
 import Signals
 ```
