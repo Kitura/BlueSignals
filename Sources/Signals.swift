@@ -43,7 +43,7 @@ public class Signals {
 		case KILL
 		case ALRM
 		case TERM
-		case USER(Int32)
+		case USER(Int)
 		
 		///
 		/// Obtain the OS dependent value of a Signal
@@ -52,21 +52,21 @@ public class Signals {
 			
 			switch self {
 			case HUP:
-				return SIGHUP
+				return Int32(SIGHUP)
 			case INT:
-				return SIGINT
+				return Int32(SIGINT)
 			case QUIT:
-				return SIGQUIT
+				return Int32(SIGQUIT)
 			case ABRT:
-				return SIGABRT
+				return Int32(SIGABRT)
 			case KILL:
-				return SIGKILL
+				return Int32(SIGKILL)
 			case ALRM:
-				return SIGALRM
+				return Int32(SIGALRM)
 			case TERM:
-				return SIGTERM
+				return Int32(SIGTERM)
 			case USER(let sig):
-				return sig
+				return Int32(sig)
 				
 			}
 		}

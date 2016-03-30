@@ -43,7 +43,7 @@ Signals provides four (4) class level APIs.  Three (3) are used for trapping and
 #### Trapping a signal
 - `trap(signal signal: Signal, action: SigActionHandler)` - This basic API allows you to set and specific handler for a specific signal.
 
-The example below shows how to add a trap handler to a server in order to perfrorm and orderly shutdown in the event that user press `^C` which sends the process a `SIGINT`.
+The example below shows how to add a trap handler to a server in order to perform and orderly shutdown in the event that user press `^C` which sends the process a `SIGINT`.
 ```
 import Signals
 
@@ -58,11 +58,12 @@ Signals.trap(signal: .INT) { signal in
 
 server.run()
 ```
-Additionally, convenience API's that build on the basic API specified above are provided that will allow for trapping multiple signals each to a separate handler or to a single handler.
+Additionally, convenience API's that build on the basic API specified above are provided that will allow for trapping multiple signals, each to a separate handler or to a single handler.
 - `trap(signals signals: [(signal: Signal, action: SigActionHandler)])` - This lets you trap multiple signals to separate handlers in a single function call.
 - `trap(signals signals: [Signal], action: SigActionHandler)` - This API lets you trap multiple signals to a common handler.
 
 #### Raising a signal
+- `raise(signal signal: Signal)` - This API is used to send an operating system signal to your application.
 
 This example illustrates how to use Signals to raise a signal with the OS, in this case `SIGABRT`.
 ```
@@ -79,7 +80,7 @@ This example shows how to add a user defined signal, add a trap handler for it a
 ```
 import Signals
 
-let mySignal = Signals.Signal.USER(Int32(20))
+let mySignal = Signals.Signal.USER(20)
 
 Signals.trap(signal: mySignal) { signal in
 
