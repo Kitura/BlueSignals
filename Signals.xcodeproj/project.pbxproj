@@ -13,7 +13,7 @@
 /* Begin PBXFileReference section */
 		8C30FB321CAAE0E000113F9D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8C30FB331CAAE0E000113F9D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "/Users/babt/Source/IBMSwift/Open Source/Signals/Package.swift"; sourceTree = "<group>"; };
+		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Signals.swift /* Signals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Signals.swift; path = Sources/Signals.swift; sourceTree = "<group>"; };
 		"_____Product_Signals" /* Signals.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = Signals.dylib; path = libSignals.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
