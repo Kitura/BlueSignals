@@ -15,7 +15,7 @@
 		8C30FB331CAAE0E000113F9D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "/Users/babt/Source/IBMSwift/Open Source/Signals/Package.swift"; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Signals.swift /* Signals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Signals.swift; path = Sources/Signals.swift; sourceTree = "<group>"; };
-		"_____Product_Signals" /* Signals.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = Signals.dylib; path = libSignals.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_Signals" /* libSignals.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libSignals.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 		"____Products_" /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"_____Product_Signals" /* Signals.dylib */,
+				"_____Product_Signals" /* libSignals.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 			);
 			name = Signals;
 			productName = Signals;
-			productReference = "_____Product_Signals" /* Signals.dylib */;
+			productReference = "_____Product_Signals" /* libSignals.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
