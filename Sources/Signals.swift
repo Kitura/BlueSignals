@@ -90,7 +90,7 @@ public class Signals {
 	///		- signal:	The signal to catch.
 	///		- action:	The action handler.
 	///
-	public class func trap(signal signal: Signal, action: SigActionHandler) {
+	public class func trap(signal: Signal, action: SigActionHandler) {
 	
 		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
 
@@ -117,7 +117,7 @@ public class Signals {
 	///
 	/// - Parameter signals:	An array of tuples each containing a signal and signal handler.
 	///
-	public class func trap(signals signals: [(signal: Signal, action: SigActionHandler)]) {
+	public class func trap(signals: [(signal: Signal, action: SigActionHandler)]) {
 	
 		for sighandler in signals {
 			
@@ -132,7 +132,7 @@ public class Signals {
 	///		- signals:	An array of signals to catch.
 	///		- action:	The action handler that will handle these signals.
 	///
-	public class func trap(signals signals: [Signal], action: SigActionHandler) {
+	public class func trap(signals: [Signal], action: SigActionHandler) {
 		
 		for signal in signals {
 			
@@ -145,7 +145,7 @@ public class Signals {
 	///
 	/// - Parameter signal:	The signal to raise.
 	///
-	public class func raise(signal signal: Signal) {
+	public class func raise(signal: Signal) {
 		
 		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
 		
