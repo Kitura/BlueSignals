@@ -6,7 +6,7 @@ Generic Cross Platform Signal Handler.
 ## Prerequisites
 
 ### Swift
-* Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-04-12-a` toolchain or higher (**REQUIRED for latest release**)
+* Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-04-25-a` toolchain or higher (**REQUIRED for latest release**)
 
 ### OS X
 
