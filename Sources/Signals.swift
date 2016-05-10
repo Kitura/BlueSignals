@@ -1,6 +1,6 @@
 //
 //  Signals.swift
-//  Signals
+//  BlueSignals
 //
 //  Created by Bill Abt on 3/29/16.
 //  Copyright © 2016 IBM. All rights reserved.
@@ -36,14 +36,14 @@ public class Signals {
 	/// Common OS Signals
 	///
 	public enum Signal {
-		case HUP
-		case INT
-		case QUIT
-		case ABRT
-		case KILL
-		case ALRM
-		case TERM
-		case USER(Int)
+		case hup
+		case int
+		case quit
+		case abrt
+		case kill
+		case alrm
+		case term
+		case user(Int)
 		
 		///
 		/// Obtain the OS dependent value of a Signal
@@ -51,21 +51,21 @@ public class Signals {
 		public var valueOf: Int32 {
 			
 			switch self {
-			case HUP:
+			case hup:
 				return Int32(SIGHUP)
-			case INT:
+			case int:
 				return Int32(SIGINT)
-			case QUIT:
+			case quit:
 				return Int32(SIGQUIT)
-			case ABRT:
+			case abrt:
 				return Int32(SIGABRT)
-			case KILL:
+			case kill:
 				return Int32(SIGKILL)
-			case ALRM:
+			case alrm:
 				return Int32(SIGALRM)
-			case TERM:
+			case term:
 				return Int32(SIGTERM)
-			case USER(let sig):
+			case user(let sig):
 				return Int32(sig)
 				
 			}

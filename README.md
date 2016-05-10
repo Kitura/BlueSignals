@@ -51,7 +51,7 @@ import Signals
 
 let server: SomeServer = ...
 
-Signals.trap(signal: .INT) { signal in
+Signals.trap(signal: .int) { signal in
 
 	server.shutdownServer()
 }
@@ -71,7 +71,7 @@ import Signals
 
 ...
 
-Signals.raise(signal: .ABRT)
+Signals.raise(signal: .abrt)
 ```
 
 #### Adding a USER-DEFINED signal
@@ -80,7 +80,7 @@ This example shows how to add a user defined signal, add a trap handler for it a
 ```
 import Signals
 
-let mySignal = Signals.Signal.USER(20)
+let mySignal = Signals.Signal.user(20)
 
 Signals.trap(signal: mySignal) { signal in
 
