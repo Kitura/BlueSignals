@@ -96,7 +96,7 @@ public class Signals {
 
 			var signalAction = sigaction(__sigaction_u: unsafeBitCast(action, to: __sigaction_u.self), sa_mask: 0, sa_flags: 0)
 		
-			withUnsafePointer(&signalAction) { actionPointer in
+			let _ = withUnsafePointer(&signalAction) { actionPointer in
 				
 				Darwin.sigaction(signal.valueOf, actionPointer, nil)
 			}
@@ -107,7 +107,7 @@ public class Signals {
 	
 			sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
 	
-			Glibc.sigaction(signal.valueOf, &sigAction, nil)
+			let _ = Glibc.sigaction(signal.valueOf, &sigAction, nil)
 	
 		#endif
 	}
@@ -149,11 +149,11 @@ public class Signals {
 		
 		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
 		
-			Darwin.raise(signal.valueOf)
+			let _ = Darwin.raise(signal.valueOf)
 		
 		#elseif os(Linux)
 		
-			Glibc.raise(signal.valueOf)
+			let _ = Glibc.raise(signal.valueOf)
 		
 		#endif
 	}
