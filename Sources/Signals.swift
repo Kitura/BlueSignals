@@ -18,7 +18,7 @@
 // 	limitations under the License.
 //
 
-#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 	import Darwin
 	import Foundation
 #elseif os(Linux)
@@ -51,21 +51,21 @@ public class Signals {
 		public var valueOf: Int32 {
 			
 			switch self {
-			case hup:
+			case .hup:
 				return Int32(SIGHUP)
-			case int:
+			case .int:
 				return Int32(SIGINT)
-			case quit:
+			case .quit:
 				return Int32(SIGQUIT)
-			case abrt:
+			case .abrt:
 				return Int32(SIGABRT)
-			case kill:
+			case .kill:
 				return Int32(SIGKILL)
-			case alrm:
+			case .alrm:
 				return Int32(SIGALRM)
-			case term:
+			case .term:
 				return Int32(SIGTERM)
-			case user(let sig):
+			case .user(let sig):
 				return Int32(sig)
 				
 			}
@@ -92,7 +92,7 @@ public class Signals {
 	///
 	public class func trap(signal: Signal, action: SigActionHandler) {
 	
-		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
+		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 
 			var signalAction = sigaction(__sigaction_u: unsafeBitCast(action, to: __sigaction_u.self), sa_mask: 0, sa_flags: 0)
 		
@@ -147,7 +147,7 @@ public class Signals {
 	///
 	public class func raise(signal: Signal) {
 		
-		#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
+		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 		
 			_ = Darwin.raise(signal.valueOf)
 		
