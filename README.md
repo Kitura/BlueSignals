@@ -4,6 +4,7 @@
 ![](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)
 ![](https://img.shields.io/badge/Snapshot-8/18-blue.svg?style=flat)
 ![](https://img.shields.io/badge/Snapshot-8/23-blue.svg?style=flat)
+![](https://img.shields.io/badge/Snapshot-8/24-blue.svg?style=flat)
 
 # Signals
 
@@ -14,7 +15,8 @@ Generic Cross Platform Signal Handler.
 
 ### Swift
 * Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-08-18-a` toolchain (**Minimum REQUIRED for latest release**)
-* Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-08-23-a` toolchain (**Recommended**)
+* Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-08-23-a` toolchain
+* Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-08-24-a` toolchain (**Recommended**)
 
 ### macOS
 
