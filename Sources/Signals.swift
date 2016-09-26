@@ -20,11 +20,11 @@
 
 #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 	import Darwin
-	import Foundation
 #elseif os(Linux)
 	import Glibc
-	import Foundation
 #endif
+
+import Foundation
 
 // MARK: Signals
 
