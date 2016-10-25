@@ -2,7 +2,7 @@
 ![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
 ![](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)
-![](https://img.shields.io/badge/Snapshot-10/21-blue.svg?style=flat)
+![](https://img.shields.io/badge/Snapshot-10/24-blue.svg?style=flat)
 
 # Signals
 
