@@ -19,8 +19,16 @@
 
 import PackageDescription
 
-let package = Package(
-	name: "Signals",
-	targets: [Target(name: "Signals")],
-	exclude: ["Signals.xcodeproj", "README.md", "Sources/Info.plist", "Sources/Socket.h", "Tests"]
-)
+#if os(Linux) || os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+	
+	let package = Package(
+		name: "Signals",
+		targets: [Target(name: "Signals")],
+		exclude: ["Signals.xcodeproj", "README.md", "Sources/Info.plist", "Sources/Signals.h", "Tests"]
+	)
+
+#else
+	
+fatalError("Unsupported OS")
+	
+#endif
