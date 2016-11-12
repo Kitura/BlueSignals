@@ -3,7 +3,7 @@
 ![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
 ![](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)
-![](https://img.shields.io/badge/Snapshot-11/1-blue.svg?style=flat)
+![](https://img.shields.io/badge/Snapshot-11/11-blue.svg?style=flat)
 
 # Signals
 
@@ -14,7 +14,7 @@ Generic Cross Platform Signal Handler.
 
 ### Swift
 * Swift Open Source `swift-3.0-RELEASE` toolchain (**Minimum REQUIRED for latest release**)
-* Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-11-01-a` toolchain (**Recommended**)
+* Swift Open Source `swift-DEVELOPMENT-SNAPSHOT-2016-11-11-a` toolchain (**Recommended**)
 
 ### macOS
 
@@ -24,7 +24,7 @@ Generic Cross Platform Signal Handler.
 
 ### Linux
 
-* Ubuntu 15.10 (or 14.04 but only tested on 15.10)
+* Ubuntu 16.04 (or 16.10 but only tested on 16.04)
 * One of the Swift Open Source toolchain listed above
 
 ## Build
