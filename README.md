@@ -82,6 +82,30 @@ import Signals
 Signals.raise(signal: .abrt)
 ```
 
+#### Ignoring a signal
+- `func ignore(signal: Signal)` - This API is used to ignore an operating system signal.
+
+This example illustrates how to use Signals to ignore a signal with the OS, in this case `SIGPIPE`.
+```swift
+import Signals
+
+...
+
+Signals.ignore(signal: .pipe)
+```
+
+#### Restoring a signals default handler
+- `func restore(signal: Signal)` - This API is used to restore an operating system signals default handler.
+
+This example illustrates how to use Signals to restore a signals default handler, in this case `SIGPIPE`.
+```swift
+import Signals
+
+...
+
+Signals.restore(signal: .pipe)
+```
+
 #### Adding a USER-DEFINED signal
 
 This example shows how to add a user defined signal, add a trap handler for it and then raise the signal.

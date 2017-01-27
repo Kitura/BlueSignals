@@ -43,6 +43,7 @@ public class Signals {
 		case kill
 		case alrm
 		case term
+		case pipe
 		case user(Int)
 		
 		///
@@ -65,6 +66,8 @@ public class Signals {
 				return Int32(SIGALRM)
 			case .term:
 				return Int32(SIGTERM)
+			case .pipe:
+				return Int32(SIGPIPE)
 			case .user(let sig):
 				return Int32(sig)
 				
@@ -157,4 +160,41 @@ public class Signals {
 		
 		#endif
 	}
+	
+	///
+	/// Ignore a signal
+	///
+	/// - Parameter signal:	The signal to ignore.
+	///
+	public class func ignore(signal: Signal) {
+		
+		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+			
+			_ = Darwin.signal(signal.valueOf, SIG_IGN)
+			
+		#elseif os(Linux)
+			
+			_ = Glibc.signal(signal.valueOf, SIG_IGN)
+			
+		#endif
+	}
+
+	///
+	/// Restore default signal handling
+	///
+	/// - Parameter signal:	The signal to restore.
+	///
+	public class func restore(signal: Signal) {
+		
+		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+			
+			_ = Darwin.signal(signal.valueOf, SIG_DFL)
+			
+		#elseif os(Linux)
+			
+			_ = Glibc.signal(signal.valueOf, SIG_DFL)
+			
+		#endif
+	}
+	
 }
