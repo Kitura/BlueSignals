@@ -101,7 +101,7 @@ public class Signals {
 		
 			_ = withUnsafePointer(to: &signalAction) { actionPointer in
 				
-				Darwin.sigaction(signal.valueOf, actionPointer, nil)
+				sigaction(signal.valueOf, actionPointer, nil)
 			}
 		
 		#elseif os(Linux)
