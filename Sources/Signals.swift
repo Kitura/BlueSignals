@@ -101,7 +101,7 @@ public class Signals {
 		
 			_ = withUnsafePointer(to: &signalAction) { actionPointer in
 				
-				Darwin.sigaction(signal.valueOf, actionPointer, nil)
+				sigaction(signal.valueOf, actionPointer, nil)
 			}
 		
 		#elseif os(Linux)
@@ -110,7 +110,7 @@ public class Signals {
 	
 			sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
 	
-			_ = Glibc.sigaction(signal.valueOf, &sigAction, nil)
+			_ = sigaction(signal.valueOf, &sigAction, nil)
 	
 		#endif
 	}
