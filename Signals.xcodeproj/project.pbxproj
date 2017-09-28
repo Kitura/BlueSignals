@@ -136,6 +136,7 @@
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_MODULE_NAME = Signals;
 				PRODUCT_NAME = "lib$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -151,6 +152,7 @@
 				PRODUCT_MODULE_NAME = Signals;
 				PRODUCT_NAME = "lib$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
