@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C6C4672202351FC00FB6E39 /* Package@swift-4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C4671202351FC00FB6E39 /* Package@swift-4.swift */; };
 		__src_cc_ref_Sources/Signals.swift /* Signals.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Signals.swift /* Signals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C30FB321CAAE0E000113F9D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8C30FB331CAAE0E000113F9D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8C6C4671202351FC00FB6E39 /* Package@swift-4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.swift"; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Signals.swift /* Signals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Signals.swift; path = Sources/Signals/Signals.swift; sourceTree = "<group>"; };
 		"_____Product_Signals" /* libSignals.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libSignals.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,7 +34,6 @@
 			children = (
 				8C30FB321CAAE0E000113F9D /* LICENSE */,
 				__PBXFileRef_Package.swift /* Package.swift */,
-				8C6C4671202351FC00FB6E39 /* Package@swift-4.swift */,
 				8C30FB331CAAE0E000113F9D /* README.md */,
 				"_____Sources_" /* Sources */,
 				"_______Tests_" /* Tests */,
@@ -121,7 +118,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				8C6C4672202351FC00FB6E39 /* Package@swift-4.swift in Sources */,
 				__src_cc_ref_Sources/Signals.swift /* Signals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
