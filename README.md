@@ -3,7 +3,7 @@
 ![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
 ![](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)
-![](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)
+![](https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat)
 
 # Signals
 
@@ -15,8 +15,8 @@ Generic Cross Platform Signal Handler.
 ### Swift
 
 * Swift Open Source `swift-4.0.0-RELEASE` toolchain (**Minimum REQUIRED for latest release**)
-* Swift Open Source `swift-4.0.3-RELEASE` toolchain (**Recommended**)
-* Swift toolchain included in *Xcode Version 9.2 (9C40b) or higher*.
+* Swift Open Source `swift-4.1-RELEASE` toolchain (**Recommended**)
+* Swift toolchain included in *Xcode Version 9.3 (9E145) or higher*.
 
 ### macOS
 
@@ -29,7 +29,7 @@ Generic Cross Platform Signal Handler.
 
 * iOS 10.0 or higher
 * Xcode Version 9.0  (9A325) or higher using one of the above toolchains.
-* Xcode Version 9.2 (9C40b) or higher using the included toolchain (*Recommended*).
+* Xcode Version 9.3 (9E145) or higher using the included toolchain (*Recommended*).
 
 ### Linux
 
