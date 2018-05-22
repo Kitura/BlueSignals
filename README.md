@@ -4,6 +4,7 @@
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
 ![](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)
 ![](https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat)
+![](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)
 
 # Signals
 
