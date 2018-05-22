@@ -5,6 +5,8 @@
 ![](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)
 ![](https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat)
 ![](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)
+[![Build Status - Master](https://travis-ci.org/IBM-Swift/BlueCryptor.svg?branch=master)](https://travis-ci.org/IBM-Swift/BlueSignals)
+
 
 # Signals
 
