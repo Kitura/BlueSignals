@@ -135,7 +135,7 @@ public class Signals {
 	///		- signals:	An array of signals to catch.
 	///		- action:	The action handler that will handle these signals.
 	///
-	public class func trap(signals: [Signal], action: SigActionHandler) {
+	public class func trap(signals: [Signal], action: @escaping SigActionHandler) {
 		
 		for signal in signals {
 			
