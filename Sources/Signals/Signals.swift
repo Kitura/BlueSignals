@@ -93,7 +93,7 @@ public class Signals {
 	///		- signal:	The signal to catch.
 	///		- action:	The action handler.
 	///
-	public class func trap(signal: Signal, action: SigActionHandler) {
+	public class func trap(signal: Signal, action: @escaping SigActionHandler) {
 	
 		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 
@@ -135,7 +135,7 @@ public class Signals {
 	///		- signals:	An array of signals to catch.
 	///		- action:	The action handler that will handle these signals.
 	///
-	public class func trap(signals: [Signal], action: SigActionHandler) {
+	public class func trap(signals: [Signal], action: @escaping SigActionHandler) {
 		
 		for signal in signals {
 			
