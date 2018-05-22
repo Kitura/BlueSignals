@@ -26,7 +26,6 @@ Generic Cross Platform Signal Handler.
 * macOS 10.11.6 (*El Capitan*) or higher.
 * Xcode Version 9.0  (9A325) or higher using one of the above toolchains.
 * Xcode Version 9.2 (9C40b) or higher using the included toolchain (*Recommended*).
-* CommonCrypto is provided by macOS.
 
 ### iOS
 
