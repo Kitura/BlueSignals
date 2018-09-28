@@ -11,6 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C2D91E1215EEEA1000E2D9C /* BlueSignals.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlueSignals.podspec; sourceTree = "<group>"; };
 		8C30FB321CAAE0E000113F9D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8C30FB331CAAE0E000113F9D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -32,6 +33,7 @@
 		"___RootGroup_" = {
 			isa = PBXGroup;
 			children = (
+				8C2D91E1215EEEA1000E2D9C /* BlueSignals.podspec */,
 				8C30FB321CAAE0E000113F9D /* LICENSE */,
 				__PBXFileRef_Package.swift /* Package.swift */,
 				8C30FB331CAAE0E000113F9D /* README.md */,
