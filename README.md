@@ -54,6 +54,34 @@ To build Signals from the command line:
 
 ## Using Signals
 
+### Including in your project
+
+#### Swift Package Manager
+
+To include BlueSignals into a Swift Package Manager package, add it to the `dependencies` attribute defined in your `Package.swift` file. You can select the version using the `majorVersion` and `minor` parameters. For example:
+```
+	dependencies: [
+		.Package(url: "https://github.com/IBM-Swift/BlueSignals.git", majorVersion: <majorVersion>, minor: <minor>)
+	]
+```
+
+#### Carthage
+To include BlueSignals in a project using Carthage, add a line to your `Cartfile` with the GitHub organization and project names and version. For example:
+```
+	github "IBM-Swift/BlueSignals" ~> <majorVersion>.<minor>
+```
+
+#### CocoaPods
+To include BlueSignals in a project using CocoaPods, you just add `BlueSignals` to your `Podfile`, for example:
+```
+    platform :ios, '10.0'
+
+    target 'MyApp' do
+        use_frameworks!
+        pod 'BlueSignals'
+    end
+```
+
 ### Before starting
 
 The first thing you need to do is import the Signals framework.  This is done by the following:
