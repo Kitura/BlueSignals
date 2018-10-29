@@ -23,20 +23,20 @@ Generic Cross Platform Signal Handler.
 ### Swift
 
 * Swift Open Source `swift-4.0.0-RELEASE` toolchain (**Minimum REQUIRED for latest release**)
-* Swift Open Source `swift-4.1.2-RELEASE` toolchain (**Recommended**)
-* Swift toolchain included in *Xcode Version 9.4 or higher*.
+* Swift Open Source `swift-4.2-RELEASE` toolchain (**Recommended**)
+* Swift toolchain included in *Xcode Version 10.0 (10A255) or higher*.
 
 ### macOS
 
 * macOS 10.11.6 (*El Capitan*) or higher.
 * Xcode Version 9.0 or higher using one of the above toolchains.
-* Xcode Version 9.4 or higher using the included toolchain (*Recommended*).
+* Xcode Version 10.0 (10A255) or higher using the included toolchain (*Recommended*).
 
 ### iOS
 
 * iOS 10.0 or higher
 * Xcode Version 9.0 or higher using one of the above toolchains.
-* Xcode Version 9.4 or higher using the included toolchain (*Recommended*).
+* Xcode Version 10.0 (10A255) or higher using the included toolchain (*Recommended*).
 
 ### Linux
 
