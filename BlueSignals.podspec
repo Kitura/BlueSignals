@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name        = "BlueSignals"
-s.version     = "1.0.18"
+s.version     = "1.0.19"
 s.summary     = "Swift cross-platform OS signals handler."
 s.homepage    = "https://github.com/IBM-Swift/BlueSignals"
 s.license     = { :type => "Apache License, Version 2.0" }
