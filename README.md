@@ -2,8 +2,8 @@
     <a href="https://www.kitura.io/packages.html#all">
     <img src="https://img.shields.io/badge/docs-kitura.io-1FBCE4.svg" alt="APIDoc">
     </a>
-    <a href="https://travis-ci.org/IBM-Swift/BlueSignals">
-    <img src="https://travis-ci.org/IBM-Swift/BlueSignals.svg?branch=master" alt="Build Status - Master">
+    <a href="https://travis-ci.org/Kitura/BlueSignals">
+    <img src="https://travis-ci.org/Kitura/BlueSignals.svg?branch=master" alt="Build Status - Master">
     </a>
     <img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" alt="macOS">
     <img src="https://img.shields.io/badge/os-iOS-green.svg?style=flat" alt="iOS">
@@ -61,14 +61,14 @@ To build Signals from the command line:
 To include BlueSignals into a Swift Package Manager package, add it to the `dependencies` attribute defined in your `Package.swift` file. You can select the version using the `majorVersion` and `minor` parameters. For example:
 ```
 	dependencies: [
-		.Package(url: "https://github.com/IBM-Swift/BlueSignals.git", majorVersion: <majorVersion>, minor: <minor>)
+		.Package(url: "https://github.com/Kitura/BlueSignals.git", majorVersion: <majorVersion>, minor: <minor>)
 	]
 ```
 
 #### Carthage
 To include BlueSignals in a project using Carthage, add a line to your `Cartfile` with the GitHub organization and project names and version. For example:
 ```
-	github "IBM-Swift/BlueSignals" ~> <majorVersion>.<minor>
+	github "Kitura/BlueSignals" ~> <majorVersion>.<minor>
 ```
 
 #### CocoaPods
@@ -178,4 +178,4 @@ We love to talk server-side Swift and Kitura. Join our [Slack](http://swift-at-i
 
 ## License
 
-This library is licensed under Apache 2.0. Full license text is available in [LICENSE](https://github.com/IBM-Swift/BlueSignals/blob/master/LICENSE).
+This library is licensed under Apache 2.0. Full license text is available in [LICENSE](https://github.com/Kitura/BlueSignals/blob/master/LICENSE).
