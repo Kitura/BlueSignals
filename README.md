@@ -22,26 +22,29 @@ Generic Cross Platform Signal Handler.
 
 ### Swift
 
-* Swift Open Source `swift-4.0.0-RELEASE` toolchain (**Minimum REQUIRED for latest release**)
-* Swift Open Source `swift-4.2-RELEASE` toolchain (**Recommended**)
-* Swift toolchain included in *Xcode Version 10.0 (10A255) or higher*.
+* Swift Open Source `swift-5.1-RELEASE` toolchain (**Minimum REQUIRED for latest release**)
+* Swift Open Source `swift-5.4-RELEASE` toolchain (**Recommended**)
+* Swift toolchain included in *Xcode Version 11.0 or higher*.
+
+BlueSignals version 2.0 and above supports Swift 5.1+.  See older versions of BlueSSLService for older versions of Swift.
 
 ### macOS
 
-* macOS 10.11.6 (*El Capitan*) or higher.
-* Xcode Version 9.0 or higher using one of the above toolchains.
-* Xcode Version 10.0 (10A255) or higher using the included toolchain (*Recommended*).
+* macOS 10.14.6 (*Mojave*) or higher.
+* Xcode Version 11.0 or higher using one of the above toolchains.
+* Xcode Version 12.5 or higher using the included toolchain (*Recommended*).
 
 ### iOS
 
 * iOS 10.0 or higher
-* Xcode Version 9.0 or higher using one of the above toolchains.
-* Xcode Version 10.0 (10A255) or higher using the included toolchain (*Recommended*).
+* Xcode Version 11.0 or higher using one of the above toolchains.
+* Xcode Version 12.5 or higher using the included toolchain (*Recommended*).
 
 ### Linux
 
-* Ubuntu 16.04 (or 16.10 but only tested on 16.04).
+* Ubuntu 16.04 (or 16.10 but only tested on 16.04) and 18.04.
 * One of the Swift Open Source toolchain listed above.
+
 
 ## Build
 
