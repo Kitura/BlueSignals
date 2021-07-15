@@ -2,8 +2,8 @@
     <a href="https://www.kitura.io/packages.html#all">
     <img src="https://img.shields.io/badge/docs-kitura.io-1FBCE4.svg" alt="APIDoc">
     </a>
-    <a href="https://travis-ci.org/IBM-Swift/BlueSignals">
-    <img src="https://travis-ci.org/IBM-Swift/BlueSignals.svg?branch=master" alt="Build Status - Master">
+    <a href="https://travis-ci.org/Kitura/BlueSignals">
+    <img src="https://travis-ci.org/Kitura/BlueSignals.svg?branch=master" alt="Build Status - Master">
     </a>
     <img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" alt="macOS">
     <img src="https://img.shields.io/badge/os-iOS-green.svg?style=flat" alt="iOS">
@@ -22,26 +22,29 @@ Generic Cross Platform Signal Handler.
 
 ### Swift
 
-* Swift Open Source `swift-4.0.0-RELEASE` toolchain (**Minimum REQUIRED for latest release**)
-* Swift Open Source `swift-4.2-RELEASE` toolchain (**Recommended**)
-* Swift toolchain included in *Xcode Version 10.0 (10A255) or higher*.
+* Swift Open Source `swift-5.1-RELEASE` toolchain (**Minimum REQUIRED for latest release**)
+* Swift Open Source `swift-5.4-RELEASE` toolchain (**Recommended**)
+* Swift toolchain included in *Xcode Version 11.0 or higher*.
+
+BlueSignals version 2.0 and above supports Swift 5.1+.  See older versions of BlueSSLService for older versions of Swift.
 
 ### macOS
 
-* macOS 10.11.6 (*El Capitan*) or higher.
-* Xcode Version 9.0 or higher using one of the above toolchains.
-* Xcode Version 10.0 (10A255) or higher using the included toolchain (*Recommended*).
+* macOS 10.14.6 (*Mojave*) or higher.
+* Xcode Version 11.0 or higher using one of the above toolchains.
+* Xcode Version 12.5 or higher using the included toolchain (*Recommended*).
 
 ### iOS
 
 * iOS 10.0 or higher
-* Xcode Version 9.0 or higher using one of the above toolchains.
-* Xcode Version 10.0 (10A255) or higher using the included toolchain (*Recommended*).
+* Xcode Version 11.0 or higher using one of the above toolchains.
+* Xcode Version 12.5 or higher using the included toolchain (*Recommended*).
 
 ### Linux
 
-* Ubuntu 16.04 (or 16.10 but only tested on 16.04).
+* Ubuntu 16.04 (or 16.10 but only tested on 16.04) and 18.04.
 * One of the Swift Open Source toolchain listed above.
+
 
 ## Build
 
@@ -61,14 +64,14 @@ To build Signals from the command line:
 To include BlueSignals into a Swift Package Manager package, add it to the `dependencies` attribute defined in your `Package.swift` file. You can select the version using the `majorVersion` and `minor` parameters. For example:
 ```
 	dependencies: [
-		.Package(url: "https://github.com/IBM-Swift/BlueSignals.git", majorVersion: <majorVersion>, minor: <minor>)
+		.Package(url: "https://github.com/Kitura/BlueSignals.git", majorVersion: <majorVersion>, minor: <minor>)
 	]
 ```
 
 #### Carthage
 To include BlueSignals in a project using Carthage, add a line to your `Cartfile` with the GitHub organization and project names and version. For example:
 ```
-	github "IBM-Swift/BlueSignals" ~> <majorVersion>.<minor>
+	github "Kitura/BlueSignals" ~> <majorVersion>.<minor>
 ```
 
 #### CocoaPods
@@ -178,4 +181,4 @@ We love to talk server-side Swift and Kitura. Join our [Slack](http://swift-at-i
 
 ## License
 
-This library is licensed under Apache 2.0. Full license text is available in [LICENSE](https://github.com/IBM-Swift/BlueSignals/blob/master/LICENSE).
+This library is licensed under Apache 2.0. Full license text is available in [LICENSE](https://github.com/Kitura/BlueSignals/blob/master/LICENSE).
