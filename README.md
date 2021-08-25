@@ -5,9 +5,10 @@
     <a href="https://travis-ci.org/Kitura/BlueSignals">
     <img src="https://travis-ci.org/Kitura/BlueSignals.svg?branch=master" alt="Build Status - Master">
     </a>
-    <img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" alt="macOS">
     <img src="https://img.shields.io/badge/os-iOS-green.svg?style=flat" alt="iOS">
-    <img src="https://img.shields.io/badge/os-linux-green.svg?style=flat" alt="Linux">
+    <img src="https://img.shields.io/badge/os-Android-green.svg?style=flat" alt="Android">
+    <img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" alt="macOS">
+    <img src="https://img.shields.io/badge/os-Linux-green.svg?style=flat" alt="Linux">
     <img src="https://img.shields.io/badge/license-Apache2-blue.svg?style=flat" alt="Apache 2">
     <a href="http://swift-at-ibm-slack.mybluemix.net/">
     <img src="http://swift-at-ibm-slack.mybluemix.net/badge.svg" alt="Slack Status">
@@ -45,14 +46,62 @@ BlueSignals version 2.0 and above supports Swift 5.1+.  See older versions of Bl
 * Ubuntu 16.04 (or 16.10 but only tested on 16.04) and 18.04.
 * One of the Swift Open Source toolchain listed above.
 
+### Android
+
+* macOS 10.15.7 (*Catalina*) or higher.
+* Xcode Version 12.4 (12D4e) or higher using the included toolchain (*Recommended*).
+* [Swift-android-toolchain-5.4.2-RELEASE](https://github.com/Guang1234567/swift_android_all_in_one/tree/swift_android_5.4.2_release) (**Recommended**)
+* Android sdk(latest) and ndk(21.4.7075529)
 
 ## Build
 
 To build Signals from the command line:
 
+- other platform
 ```
 % cd <path-to-clone>
 % swift build
+```
+
+- android
+
+```
+#!/usr/bin/env bash
+
+export ANDROID_HOME=$HOME/dev_kit/sdk/android_sdk
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.4.7075529
+
+# clone from https://github.com/Guang1234567/swift_android_all_in_one/tree/swift_android_5.4.2_release
+export SWIFT_ANDROID_HOME=$HOME/dev_kit/sdk/swift-android-5.4.2-release-ndk21
+
+export SWIFT_ANDROID_ARCH=aarch64
+#export SWIFT_ANDROID_ARCH=armv7
+#export SWIFT_ANDROID_ARCH=x86_64
+#export SWIFT_ANDROID_ARCH=x86
+export SWIFT_ANDROID_API=23
+
+cd Swift_Signals
+
+echo -e "Running on macOS:\n=======================================\n"
+swift run Example
+
+echo -e "Running on androidOS:\n=======================================\n"
+
+${SWIFT_ANDROID_HOME}/build-tools/1.9.7-swift5.4/swift-build --configuration debug -Xswiftc -DDEBUG -Xswiftc -g
+
+echo -e "Copy ELF to real android device :\n"
+
+adb push .build/aarch64-unknown-linux-android/debug/Example /data/local/tmp
+
+echo -e "Copy swift runtime SO to real android device :\n"
+
+adb push ${SWIFT_ANDROID_HOME}/toolchain/usr/lib/swift/android/${SWIFT_ANDROID_ARCH}/*.so /data/local/tmp
+
+echo -e "Running on real android device :\n"
+
+adb shell LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/Example
+
+cd ..
 ```
 
 ## Using Signals

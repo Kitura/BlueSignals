@@ -22,20 +22,25 @@ import PackageDescription
 #if os(Linux) || os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 
 let package = Package(
-    name: "Signals",
-    products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
-        .library(
-            name: "Signals",
-            targets: ["Signals"]
-        )
-    ],
-    targets: [
-        .target(
-            name: "Signals",
-            exclude: ["Signals.xcodeproj", "README.md", "Sources/Info.plist", "Sources/Signals.h", "Tests"]
-        ),
-    ]
+        name: "Signals",
+        products: [
+            // Products define the executables and libraries produced by a package, and make them visible to other packages.
+            .library(
+                    name: "Signals",
+                    type: .dynamic,
+                    targets: ["Signals"]
+            )
+        ],
+        targets: [
+            .target(
+                    name: "Signals",
+                    exclude: ["Signals.xcodeproj", "README.md", "Sources/Info.plist", "Sources/Signals.h", "Tests"]
+            ),
+            .target(
+                    name: "Example",
+                    dependencies: ["Signals"]
+            ),
+        ]
 )
 
 #else
