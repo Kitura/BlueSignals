@@ -125,7 +125,7 @@ public class Signals {
 
         #endif
 
-        withUnsafePointer(to: &signalAction) { actionPointer in
+        _ = withUnsafePointer(to: &signalAction) { actionPointer in
 
             sigaction(signal.valueOf, actionPointer, nil)
         }
