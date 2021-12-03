@@ -32,8 +32,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Signals",
-            exclude: ["Info.plist"]
+            name: "Signals"
         ),
     ]
 )
