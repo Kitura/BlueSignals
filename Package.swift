@@ -32,8 +32,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Signals",
-            exclude: ["Signals.xcodeproj", "README.md", "Sources/Info.plist", "Sources/Signals.h", "Tests"]
+            name: "Signals"
         ),
     ]
 )
