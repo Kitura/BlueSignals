@@ -45,11 +45,16 @@ public class Signals {
 		case term
 		case pipe
 		case user(Int)
-		
+
+        @available(*, renamed: "rawValue")
+        public var valueOf: Int32 {
+            return self.rawValue
+        }
+
 		///
 		/// Obtain the OS dependent value of a Signal
 		///
-		public var valueOf: Int32 {
+		public var rawValue: Int32 {
 			
 			switch self {
 			case .hup:
@@ -73,6 +78,26 @@ public class Signals {
 				
 			}
 		}
+
+        init(rawValue: Int32) {
+            self.init(rawValue: Int(rawValue))
+        }
+
+        init(rawValue: Int) {
+            switch rawValue {
+            case Int(SIGHUP): self = .hup
+            case Int(SIGINT): self = .int
+            case Int(SIGQUIT): self = .quit
+            case Int(SIGABRT): self = .abrt
+            case Int(SIGKILL): self = .kill
+            case Int(SIGALRM): self = .alrm
+            case Int(SIGTERM): self = .term
+            case Int(SIGPIPE): self = .pipe
+
+            default:
+                self = .user(rawValue)
+            }
+        }
 	}
 	
 
