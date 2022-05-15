@@ -53,10 +53,10 @@ public class SignalWatch {
     private func addHandler(signal: Signals.Signal, signalWatchHandler: SignalWatchHandler) -> SignalWatchHandler {
         return self.queue.sync {
 
-            var handlerList = self.signalsWatched[signal.valueOf] ?? []
+            var handlerList = self.signalsWatched[signal.rawValue] ?? []
             handlerList.append(signalWatchHandler)
 
-            self.signalsWatched[signal.valueOf] = handlerList
+            self.signalsWatched[signal.rawValue] = handlerList
 
             Signals.trap(signal: signal) { signalValue in
                 let signal = Signals.Signal(rawValue: signalValue)

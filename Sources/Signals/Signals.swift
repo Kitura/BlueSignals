@@ -126,7 +126,7 @@ public class Signals {
 		
 			_ = withUnsafePointer(to: &signalAction) { actionPointer in
 				
-				sigaction(signal.valueOf, actionPointer, nil)
+				sigaction(signal.rawValue, actionPointer, nil)
 			}
 		
 		#elseif os(Linux)
@@ -135,7 +135,7 @@ public class Signals {
 	
 			sigAction.__sigaction_handler = unsafeBitCast(action, to: sigaction.__Unnamed_union___sigaction_handler.self)
 	
-			_ = sigaction(signal.valueOf, &sigAction, nil)
+			_ = sigaction(signal.rawValue, &sigAction, nil)
 	
 		#endif
 	}
@@ -177,11 +177,11 @@ public class Signals {
 		
 		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 		
-			_ = Darwin.raise(signal.valueOf)
+			_ = Darwin.raise(signal.rawValue)
 		
 		#elseif os(Linux)
 		
-			_ = Glibc.raise(signal.valueOf)
+			_ = Glibc.raise(signal.rawValue)
 		
 		#endif
 	}
@@ -195,11 +195,11 @@ public class Signals {
 		
 		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 			
-			_ = Darwin.signal(signal.valueOf, SIG_IGN)
+			_ = Darwin.signal(signal.rawValue, SIG_IGN)
 			
 		#elseif os(Linux)
 			
-			_ = Glibc.signal(signal.valueOf, SIG_IGN)
+			_ = Glibc.signal(signal.rawValue, SIG_IGN)
 			
 		#endif
 	}
@@ -213,11 +213,11 @@ public class Signals {
 		
 		#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 			
-			_ = Darwin.signal(signal.valueOf, SIG_DFL)
+			_ = Darwin.signal(signal.rawValue, SIG_DFL)
 			
 		#elseif os(Linux)
 			
-			_ = Glibc.signal(signal.valueOf, SIG_DFL)
+			_ = Glibc.signal(signal.rawValue, SIG_DFL)
 			
 		#endif
 	}
