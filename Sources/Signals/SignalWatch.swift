@@ -20,12 +20,38 @@ public class SignalWatch {
         self.queue = DispatchQueue(label: "SignalWatch Internal")
     }
 
+    @discardableResult
+    public func on(signal: Signals.Signal, perform handler: @escaping (SignalWatchHandler)->Void) -> SignalWatchHandler {
+
+        let signalWatchHandler = SignalWatchHandler(id: self.getNextSignalId(), signal: signal, userInfo: Void.self, handler: .noUserInfo(handler))
+
+        return self.addHandler(signal: signal, signalWatchHandler: signalWatchHandler)
+    }
 
     @discardableResult
-    public func on(signal: Signals.Signal, perform handler: @escaping (Signals.Signal)->Void) -> SignalWatchHandler {
+    public func on(signal: Signals.Signal, perform handler: @escaping (SignalWatchHandler, Any)->Void, userInfo: Any) -> SignalWatchHandler {
 
+        let signalWatchHandler = SignalWatchHandler(id: self.getNextSignalId(), signal: signal, userInfo: userInfo, handler: .userInfo(handler))
+
+        return self.addHandler(signal: signal, signalWatchHandler: signalWatchHandler)
+    }
+
+    public func remove(handler: SignalWatchHandler) {
+        self.queue.sync {
+            guard var handlerList = self.signalsWatched[handler.signal.rawValue] else { return }
+
+            handlerList = handlerList.filter({ $0.id != handler.id })
+            if handlerList.isEmpty {
+                Signals.restore(signal: handler.signal)
+                self.signalsWatched.removeValue(forKey: handler.signal.rawValue)
+            } else {
+                self.signalsWatched[handler.signal.rawValue] = handlerList
+            }
+        }
+    }
+
+    private func addHandler(signal: Signals.Signal, signalWatchHandler: SignalWatchHandler) -> SignalWatchHandler {
         return self.queue.sync {
-            let signalWatchHandler = SignalWatchHandler(id: self.getNextSignalId(), signal: signal, handler: handler)
 
             var handlerList = self.signalsWatched[signal.valueOf] ?? []
             handlerList.append(signalWatchHandler)
@@ -39,14 +65,16 @@ public class SignalWatch {
 
             return signalWatchHandler
         }
+
     }
 
+
     private func didRecieve(signal: Signals.Signal) {
-        return self.queue.sync {
+        return self.queue.async {
             guard let signalWatchHandlerList = self.signalsWatched[signal.rawValue] else { return }
 
             for signalHandler in signalWatchHandlerList {
-                signalHandler.handler(signal)
+                signalHandler.callHandler()
             }
         }
     }
@@ -56,11 +84,4 @@ public class SignalWatch {
         self.currentSignalId += 1
         return currentSignalId
     }
-
-}
-
-public struct SignalWatchHandler: Identifiable {
-    public let id: Int
-    let signal: Signals.Signal
-    let handler: (Signals.Signal) -> Void
 }
