@@ -45,6 +45,12 @@ public class Signals {
 		case alrm
 		case term
 		case pipe
+        case cont
+        case chld
+        case io
+        case prof
+        case winch
+        case info
 		case user(Int)
 
         @available(*, renamed: "rawValue")
@@ -74,6 +80,18 @@ public class Signals {
 				return Int32(SIGTERM)
 			case .pipe:
 				return Int32(SIGPIPE)
+            case .cont:
+                return Int32(SIGCONT)
+            case .chld:
+                return Int32(SIGCHLD)
+            case .io:
+                return Int32(SIGIO)
+            case .prof:
+                return Int32(SIGPROF)
+            case .winch:
+                return Int32(SIGWINCH)
+            case .info:
+                return Int32(SIGINFO)
 			case .user(let sig):
 				return Int32(sig)
 				
@@ -94,6 +112,12 @@ public class Signals {
             case Int(SIGALRM): self = .alrm
             case Int(SIGTERM): self = .term
             case Int(SIGPIPE): self = .pipe
+            case Int(SIGCONT): self = .cont
+            case Int(SIGCHLD): self = .chld
+            case Int(SIGIO): self = .io
+            case Int(SIGPROF): self = .prof
+            case Int(SIGWINCH): self = .winch
+            case Int(SIGINFO): self = .info
 
             default:
                 self = .user(rawValue)
