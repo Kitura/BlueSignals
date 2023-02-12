@@ -28,6 +28,7 @@ import Foundation
 
 // MARK: Signals
 
+/// ``Signals`` provides a type-safe Swift interface around POSIX Signals via `sigaction`.  As such, only one handler may be active per Signal.
 public class Signals {
 	
 	// MARK: Enums

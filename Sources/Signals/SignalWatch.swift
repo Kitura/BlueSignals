@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// ``SignalWatch`` provides an interface around ``Signals`` that allows for multiple handlers to be registered for any given signal.
 public class SignalWatch {
     public static let shared = SignalWatch()
 
@@ -20,22 +21,35 @@ public class SignalWatch {
         self.queue = DispatchQueue(label: "SignalWatch Internal")
     }
 
+    /// Add a handler for a signal
+    /// - Parameters:
+    ///   - signal: Signal to watch
+    ///   - handler: Closure to call when the signal is recieved
+    /// - Returns: A handle that can be used to remove the watcher
     @discardableResult
     public func on(signal: Signals.Signal, perform handler: @escaping (SignalWatchHandler)->Void) -> SignalWatchHandler {
 
-        let signalWatchHandler = SignalWatchHandler(id: self.getNextSignalId(), signal: signal, userInfo: Void.self, handler: .noUserInfo(handler))
+        let signalWatchHandler = SignalWatchHandler(id: self.getNextSignalHandlerId(), signal: signal, userInfo: Void.self, handler: .noUserInfo(handler))
 
         return self.addHandler(signal: signal, signalWatchHandler: signalWatchHandler)
     }
 
+    /// Add a handler for a signal
+    /// - Parameters:
+    ///   - signal: Signal to watch
+    ///   - handler: Closure to call when the signal is recieved
+    ///   - userInfo: Additional data that will be passed to the handler
+    /// - Returns: A handle that can be used to remove the watcher
     @discardableResult
     public func on(signal: Signals.Signal, perform handler: @escaping (SignalWatchHandler, Any)->Void, userInfo: Any) -> SignalWatchHandler {
 
-        let signalWatchHandler = SignalWatchHandler(id: self.getNextSignalId(), signal: signal, userInfo: userInfo, handler: .userInfo(handler))
+        let signalWatchHandler = SignalWatchHandler(id: self.getNextSignalHandlerId(), signal: signal, userInfo: userInfo, handler: .userInfo(handler))
 
         return self.addHandler(signal: signal, signalWatchHandler: signalWatchHandler)
     }
 
+    /// Remove the a signal handler
+    /// - Parameter handler: ``SignalWatchHandler`` to remove
     public func remove(handler: SignalWatchHandler) {
         self.queue.sync {
             guard var handlerList = self.signalsWatched[handler.signal.rawValue] else { return }
@@ -49,6 +63,8 @@ public class SignalWatch {
             }
         }
     }
+
+    // MARK: - Private methods
 
     private func addHandler(signal: Signals.Signal, signalWatchHandler: SignalWatchHandler) -> SignalWatchHandler {
         return self.queue.sync {
@@ -79,7 +95,7 @@ public class SignalWatch {
         }
     }
 
-    private func getNextSignalId() -> Int {
+    private func getNextSignalHandlerId() -> Int {
         let currentSignalId = self.currentSignalId
         self.currentSignalId += 1
         return currentSignalId
