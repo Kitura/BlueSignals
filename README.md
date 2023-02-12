@@ -96,6 +96,28 @@ import Signals
 
 Signals provides four (4) class level APIs.  Three (3) are used for trapping and handling operating system signals.  The other function allows for the raising of a signal.
 
+#### Watching a signal
+
+``SignalWatch`` provides an interface that allows a trapped signal to notify multiple "signal watchers".  In this way, signal traps can be shared across libraries in the same application.  In most cases this can be used as a direct replacement for `trap()`.
+
+When a signal is added via ``SignalWatch``, it will install it's own handler on that signal via `trap()`.  As such, it is important to not use `trap()` directly when using ``SignalWatch``.  If all watchers of a signal are removed, ``SignalWatch`` will intelligently restore the handler that was installed before ``SignalWatch``.
+
+```swift
+import Signals
+
+...
+let server: SomeServer = ...
+
+
+SignalWatch.shared.on(signal: .int) { _ in
+ 		server.shutdownServer()
+}
+
+server.run()
+
+```
+
+
 #### Trapping a signal
 - `trap(signal signal: Signal, action: SigActionHandler)` - This basic API allows you to set and specific handler for a specific signal.
 
